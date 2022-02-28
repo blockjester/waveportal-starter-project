@@ -83,7 +83,7 @@ export default function App() {
     }
   }
 
-  const wave = async (message) => {
+  const wave = async () => {
     try {
       const { ethereum } = window;
 
@@ -95,7 +95,8 @@ export default function App() {
         let count = await wavePortalContract.getTotalWaves();
         console.log("Retrieved total wave count...", count.toNumber());
 
-        message = (message.length > 0) ? message : "a simple wave";
+        let message = document.getElementById('waveMessage').value;
+        message = (message.length > 0) ? message : "generic wave message!";
         const waveTxn = await wavePortalContract.wave(message, {
           gasLimit: 300000
         });
@@ -160,9 +161,13 @@ export default function App() {
         I'm known as blockjester coz I jest want to build stuff on blockchains. Connect your Ethereum wallet and wave at me!
         </div>
 
-        <button className="waveButton" onClick={wave}>
-          Wave at Me
-        </button>
+        <div id="waveForm">
+          <input id="waveMessage" type="text" placeholder="Type your wave message here..." />
+          <button className="waveButton" onClick={wave}>
+            <span aria-label="wave" role="img">👋</span> Wave at Me
+          </button>
+        </div>
+        
 
         {!currentAccount && (
           <button className="waveButton" onClick={connectWallet}>

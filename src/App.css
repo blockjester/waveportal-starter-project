@@ -27,8 +27,28 @@
 .waveButton {
   cursor: pointer;
   margin-top: 16px;
-  padding: 8px;
-  border: 0;
+  padding: 12px;
+  border: 2px solid gold;
   border-radius: 5px;
-  
+  background-color: azure;
+  color: rgb(105, 92, 18);
+  font-weight: bolder;
+}
+
+#waveForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+
+input#waveMessage {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid paleturquoise;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
 }
